@@ -2,7 +2,9 @@
 
 import Link from "next/link";
 import Container from "../ui/Container";
-const adminWhatsAppNumber = process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+import config from "@/lib/config";
+
+const adminWhatsAppNumber = config.adminWhatsAppNumber;
 
 export default function Header() {
   return (

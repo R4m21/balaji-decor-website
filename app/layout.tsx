@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/ui/FloatingButtons";
 import ThemeProvider from "@/components/providers/ThemeProvider";
+import config from "@/lib/config";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,9 +15,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://balajidecoriniteriors.com",
-  ),
+  metadataBase: new URL(config.siteUrl),
   title: {
     default: "Balaji Decor | Premium Interior Solutions",
     template: "%s | Balaji Decor",
@@ -52,18 +51,18 @@ export default function RootLayout({
           <FloatingButtons />
         </ThemeProvider>
         {/* reCAPTCHA – Always Load */}
-        {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+        {config.recaptchaSiteKey && (
           <Script
-            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+            src={`https://www.google.com/recaptcha/api.js?render=${config.recaptchaSiteKey}`}
             strategy="afterInteractive"
           />
         )}
 
         {/* Google Analytics – Optional */}
-        {process.env.NEXT_PUBLIC_GA_ID && (
+        {config.gaId && (
           <>
             <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              src={`https://www.googletagmanager.com/gtag/js?id=${config.gaId}`}
               strategy="afterInteractive"
             />
             <Script id="ga-script" strategy="afterInteractive">
@@ -71,7 +70,7 @@ export default function RootLayout({
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
-                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+                gtag('config', '${config.gaId}');
               `}
             </Script>
           </>

@@ -4,7 +4,9 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { Service } from "@/lib/services";
-const adminWhatsAppNumber = process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+import config from "@/lib/config";
+
+const adminWhatsAppNumber = config.adminWhatsAppNumber;
 
 export default function ServicePage({ service }: { service: Service }) {
   const jsonLd = {

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Container from "@/components/ui/Container";
+import config from "@/lib/config";
 
 export default function ContactForm() {
   const router = useRouter();
@@ -41,7 +42,7 @@ export default function ContactForm() {
 
         window.grecaptcha.ready(() => {
           window.grecaptcha
-            .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, {
+            .execute(config.recaptchaSiteKey!, {
               action: "submit",
             })
             .then(resolve)

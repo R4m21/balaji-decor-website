@@ -5,11 +5,13 @@ import db from "@/lib/db";
 import { rateLimit } from "@/lib/rate-limit";
 import { verifyRecaptcha } from "@/lib/recaptcha";
 import { sendMail } from "@/lib/mailer";
+import { sendLeadToAdmin, sendCustomerConfirmation } from "@/lib/whatsapp";
+import config from "@/lib/config";
 
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for") || "unknown";
 
-  const allowed = rateLimit(ip, Number(process.env.CONTACT_RATE_LIMIT) || 5);
+  const allowed = rateLimit(ip, config.contactRateLimit);
 
   if (!allowed) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
@@ -62,6 +64,9 @@ export async function POST(req: Request) {
 
   try {
     await sendMail(cleanData);
+    // 🔥 WhatsApp Integration
+    await sendLeadToAdmin(cleanData);
+    await sendCustomerConfirmation(cleanData);
   } catch (error) {
     console.error("Email failed:", error);
   }

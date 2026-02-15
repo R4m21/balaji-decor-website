@@ -1,20 +1,21 @@
 import nodemailer from "nodemailer";
+import config from "@/lib/config";
 
 export async function sendMail({ name, phone, email, service, message }: any) {
   const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT),
+    host: config.smtp.host,
+    port: Number(config.smtp.port),
     secure: true,
     auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS,
+      user: config.smtp.user,
+      pass: config.smtp.pass,
     },
   });
 
   // Admin Email
   await transporter.sendMail({
-    from: process.env.SMTP_USER,
-    to: process.env.ADMIN_EMAIL,
+    from: config.smtp.user,
+    to: config.adminEmail,
     subject: "New Lead – Balaji Decor",
     html: `
       <h3>New Contact Lead</h3>
@@ -29,7 +30,7 @@ export async function sendMail({ name, phone, email, service, message }: any) {
   // Auto Reply
   if (email) {
     await transporter.sendMail({
-      from: process.env.SMTP_USER,
+      from: config.smtp.user,
       to: email,
       subject: "We Received Your Inquiry – Balaji Decor",
       html: `

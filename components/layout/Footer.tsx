@@ -1,7 +1,7 @@
 import Container from "../ui/Container";
+import config from "@/lib/config";
 
-const adminWhatsAppNumber =
-  process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+const adminWhatsAppNumber = config.adminWhatsAppNumber;
 
 export default function Footer() {
   return (

@@ -2,15 +2,14 @@ import { locations } from "@/lib/locations";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
+import config from "@/lib/config";
 
 type Props = {
   params: Promise<{ slug: string }>;
 };
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_SITE_URL || "https://balajidecoriniteriors.com";
-const adminWhatsAppNumber =
-  process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+const baseUrl = config.siteUrl;
+const adminWhatsAppNumber = config.adminWhatsAppNumber;
 
 export async function generateStaticParams() {
   return locations.map((loc) => ({

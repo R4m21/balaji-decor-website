@@ -1,13 +1,12 @@
-// lib/whatsapp.ts
-
 import {
   buildAdminLeadMessage,
   buildCustomerConfirmation,
 } from "./whatsapp-templates";
+import config from "@/lib/config";
 
-const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN!;
-const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID!;
-const ADMIN_PHONE = process.env.ADMIN_WHATSAPP_NUMBER!;
+const WHATSAPP_TOKEN = config.whatsappToken!;
+const PHONE_NUMBER_ID = config.phoneNumberId!;
+const ADMIN_PHONE = config.adminWhatsAppNumber!;
 
 const BASE_URL = `https://graph.facebook.com/v18.0/${PHONE_NUMBER_ID}/messages`;
 

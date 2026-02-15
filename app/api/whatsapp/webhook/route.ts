@@ -1,8 +1,7 @@
-// app/api/whatsapp/webhook/route.ts
-
 import { NextRequest, NextResponse } from "next/server";
+import config from "@/lib/config";
 
-const VERIFY_TOKEN = process.env.WHATSAPP_WEBHOOK_VERIFY_TOKEN!;
+const VERIFY_TOKEN = config.webhookVerifyToken!;
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);

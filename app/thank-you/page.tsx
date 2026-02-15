@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import config from "@/lib/config";
 
-const adminWhatsAppNumber =
-  process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+const adminWhatsAppNumber = config.adminWhatsAppNumber;
 
 export default function ThankYouPage() {
   return (

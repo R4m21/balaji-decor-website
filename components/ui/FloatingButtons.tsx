@@ -1,7 +1,8 @@
 "use client";
 
-const adminWhatsAppNumber =
-  process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+import config from "@/lib/config";
+
+const adminWhatsAppNumber = config.adminWhatsAppNumber;
 
 export default function FloatingButtons() {
   return (
