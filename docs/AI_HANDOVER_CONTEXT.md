@@ -1,27 +1,33 @@
 PROJECT: Balaji Decor (Production Website)
 
 STACK:
-Next.js 16 App Router, TS strict, Tailwind, SQLite
+Next.js 16 App Router, TypeScript Strict, Tailwind, SQLite
 
 STABLE:
-- SSG core pages
+- SSG Core Pages
 - services/[slug]
 - locations/[slug]
-- Secure contact API
+- Secure Contact API
+- WhatsApp Cloud API (Server Side)
 - JSON-LD implemented
 - Build stable
 
 CURRENT PHASE:
-Phase 7 – WhatsApp Cloud API
+Phase 8 – Blog System (ISR Enabled)
 
 OBJECTIVE:
-- Server-side WhatsApp Cloud API integration
-- Env token usage
-- Auto lead message formatting
-- Graceful error handling
-- Do not break contact system
+- Dynamic blog routes
+- ISR enabled
+- Blog listing page
+- Individual post page
+- Category pages
+- SEO metadata per post
+- OpenGraph
+- JSON-LD Article schema
+- Multi-language scaffold (EN + HI ready)
 
 CONSTRAINTS:
-- No SEO route modification
+- Do not modify stable SEO routes
 - No root dynamic conflicts
-- Production-safe only
+- Maintain SSG-first strategy
+- Production-safe architecture only
