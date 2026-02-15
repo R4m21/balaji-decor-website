@@ -2,9 +2,9 @@ import { z } from "zod";
 
 const serverSchema = z.object({
   // WhatsApp
-  WHATSAPP_TOKEN: z.string().min(1),
-  WHATSAPP_PHONE_NUMBER_ID: z.string().min(1),
-  WHATSAPP_WEBHOOK_VERIFY_TOKEN: z.string().min(1),
+  WHATSAPP_TOKEN: z.string().optional(),
+  WHATSAPP_PHONE_NUMBER_ID: z.string().optional(),
+  WHATSAPP_WEBHOOK_VERIFY_TOKEN: z.string().optional(),
   ADMIN_WHATSAPP_NUMBER: z.string().min(10),
 
   // Mail (optional for now)
@@ -32,9 +32,17 @@ const serverEnv = isServer
   ? serverSchema.parse(process.env)
   : ({} as z.infer<typeof serverSchema>);
 
-const clientEnv = clientSchema.parse(process.env);
+const clientEnv = {
+  NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL,
+  NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER:
+    process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER,
+  NEXT_PUBLIC_RECAPTCHA_SITE_KEY: process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+  NEXT_PUBLIC_GA_ID: process.env.NEXT_PUBLIC_GA_ID,
+};
+
+const validatedClientEnv = clientSchema.parse(clientEnv);
 
 export const env = {
   ...serverEnv,
-  ...clientEnv,
+  ...validatedClientEnv,
 };
