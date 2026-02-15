@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Container from "../ui/Container";
+const adminWhatsAppNumber = process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
 
 export default function Header() {
   return (
@@ -18,7 +19,7 @@ export default function Header() {
         </nav>
 
         <a
-          href="tel:9876543210"
+          href={`tel:+${adminWhatsAppNumber}`}
           className="rounded-md bg-gradient-to-r from-brand-blue to-brand-purple px-4 py-2 text-white text-sm"
         >
           Call Now

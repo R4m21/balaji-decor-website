@@ -1,5 +1,8 @@
 import Container from "../ui/Container";
 
+const adminWhatsAppNumber =
+  process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+
 export default function Footer() {
   return (
     <footer className="bg-gray-100 dark:bg-black dark:text-white mt-16">
@@ -12,7 +15,7 @@ export default function Footer() {
           Pipeline Rd, Mariyyman Nagar, Greater Indra Nagar, Andheri East,
           Mumbai, Maharashtra 400059.
         </p>
-        <p>Phone: +91 9967263378</p>
+        <p>Phone: {`+${adminWhatsAppNumber}`}</p>
         <p>Email: balagidecor108@gmail.com</p>
         <p className="pt-6 text-xs opacity-70">
           © {new Date().getFullYear()} Balaji Decor. All rights reserved.

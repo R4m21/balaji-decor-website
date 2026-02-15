@@ -7,6 +7,11 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+const baseUrl =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://balajidecoriniteriors.com";
+const adminWhatsAppNumber =
+  process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+
 export async function generateStaticParams() {
   return locations.map((loc) => ({
     slug: loc.slug,
@@ -16,10 +21,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const data = locations.find((l) => l.slug === slug);
-  
+
   if (!data) return {};
 
-  const url = `https://balajidecor.com/${data.slug}`;
+  const url = `${baseUrl}/${data.slug}`;
 
   return {
     title: data.title,
@@ -46,7 +51,7 @@ export default async function LocationPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: "Balaji Decor",
-    image: "https://balajidecor.com/og-image.jpg",
+    image: `${baseUrl}/og-image.jpg`,
     address: {
       "@type": "PostalAddress",
       addressLocality: data.city,
@@ -54,8 +59,8 @@ export default async function LocationPage({ params }: Props) {
       addressCountry: "India",
     },
     areaServed: data.city,
-    telephone: "+919876543210",
-    url: `https://balajidecor.com/${data.slug}`,
+    telephone: `+${adminWhatsAppNumber}`,
+    url: `${baseUrl}/${data.slug}`,
   };
 
   return (
@@ -70,10 +75,9 @@ export default async function LocationPage({ params }: Props) {
       </h1>
 
       <p className="text-gray-600 mb-6">
-        Balaji Decor provides premium interior services in {data.city}
-        including designer wallpaper, wooden flooring, PVC vinyl flooring,
-        blinds installation, POP false ceiling and complete interior
-        contracting.
+        Balaji Decor provides premium interior services in {data.city} including
+        designer wallpaper, wooden flooring, PVC vinyl flooring, blinds
+        installation, POP false ceiling and complete interior contracting.
       </p>
 
       <h2 className="text-2xl font-semibold mt-10 mb-4">

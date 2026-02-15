@@ -42,11 +42,21 @@ async function sendWhatsAppMessage(to: string, body: string) {
 }
 
 export async function sendLeadToAdmin(data: LeadPayload) {
-  const message = buildAdminLeadMessage(data);
-  return sendWhatsAppMessage(ADMIN_PHONE, message);
+  try {
+    const message = buildAdminLeadMessage(data);
+    if (!WHATSAPP_TOKEN || !PHONE_NUMBER_ID) return;
+    return sendWhatsAppMessage(ADMIN_PHONE, message);
+  } catch (err) {
+    console.error("WhatsApp failed:", err);
+  }
 }
 
 export async function sendCustomerConfirmation(data: LeadPayload) {
-  const message = buildCustomerConfirmation(data.name);
-  return sendWhatsAppMessage(data.phone, message);
+  try {
+    const message = buildCustomerConfirmation(data.name);
+    if (!WHATSAPP_TOKEN || !PHONE_NUMBER_ID) return;
+    return sendWhatsAppMessage(data.phone, message);
+  } catch (err) {
+    console.error("WhatsApp failed:", err);
+  }
 }

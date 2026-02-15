@@ -4,6 +4,7 @@ import Image from "next/image";
 import Container from "@/components/ui/Container";
 import Breadcrumb from "@/components/ui/Breadcrumb";
 import { Service } from "@/lib/services";
+const adminWhatsAppNumber = process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
 
 export default function ServicePage({ service }: { service: Service }) {
   const jsonLd = {
@@ -57,7 +58,7 @@ export default function ServicePage({ service }: { service: Service }) {
           </p>
 
           <a
-            href="tel:9876543210"
+            href={`tel:+${adminWhatsAppNumber}`}
             className="inline-block bg-gradient-primary text-white px-6 py-3 rounded-md"
           >
             Call Now for Free Consultation

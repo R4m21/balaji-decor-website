@@ -60,7 +60,11 @@ export async function POST(req: Request) {
     cleanData.message,
   );
 
-  await sendMail(cleanData);
+  try {
+    await sendMail(cleanData);
+  } catch (error) {
+    console.error("Email failed:", error);
+  }
 
   return NextResponse.json({ success: true });
 }

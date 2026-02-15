@@ -3,6 +3,9 @@
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const adminWhatsAppNumber =
+  process.env.NEXT_PUBLIC_ADMIN_WHATSAPP_NUMBER || "918828282621";
+
 export default function ThankYouPage() {
   return (
     <div className="min-h-screen flex items-center justify-center text-center p-6">
@@ -17,14 +20,14 @@ export default function ThankYouPage() {
 
         <div className="flex gap-4 justify-center">
           <a
-            href="tel:+919967263378"
+            href={`tel:+${adminWhatsAppNumber}`}
             className="px-6 py-3 bg-black text-white rounded-lg"
           >
             Call Now
           </a>
 
           <a
-            href="https://wa.me/919967263378"
+            href={`https://wa.me/${adminWhatsAppNumber}`}
             className="px-6 py-3 bg-green-600 text-white rounded-lg"
           >
             WhatsApp
