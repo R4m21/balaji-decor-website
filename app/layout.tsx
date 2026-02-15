@@ -51,12 +51,17 @@ export default function RootLayout({
           <Footer />
           <FloatingButtons />
         </ThemeProvider>
+        {/* reCAPTCHA – Always Load */}
+        {process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY && (
+          <Script
+            src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+            strategy="afterInteractive"
+          />
+        )}
+
+        {/* Google Analytics – Optional */}
         {process.env.NEXT_PUBLIC_GA_ID && (
           <>
-            <Script
-              src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-              strategy="afterInteractive"
-            />
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
               strategy="afterInteractive"

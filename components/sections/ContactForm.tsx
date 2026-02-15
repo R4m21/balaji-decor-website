@@ -31,10 +31,23 @@ export default function ContactForm() {
 
     try {
       console.log({ form });
-      const token = await window.grecaptcha.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
-        { action: "submit" },
-      );
+      console.log("recaptcha object:", window.grecaptcha);
+
+      const token = await new Promise<string>((resolve, reject) => {
+        if (!window.grecaptcha) {
+          reject("Recaptcha not loaded");
+          return;
+        }
+
+        window.grecaptcha.ready(() => {
+          window.grecaptcha
+            .execute(process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!, {
+              action: "submit",
+            })
+            .then(resolve)
+            .catch(reject);
+        });
+      });
 
       const res = await fetch("/api/contact", {
         method: "POST",
