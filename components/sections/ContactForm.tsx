@@ -30,6 +30,7 @@ export default function ContactForm() {
     setLoading(true);
 
     try {
+      console.log({ form });
       const token = await window.grecaptcha.execute(
         process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
         { action: "submit" },
