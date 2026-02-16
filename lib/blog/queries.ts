@@ -34,8 +34,22 @@ export function getPostsByCategory(
   return db
     .prepare(
       `SELECT * FROM blog_posts 
-       WHERE category = ? AND language = ? AND published = 1
+       WHERE LOWER(category) = LOWER(?) 
+       AND language = ? 
+       AND published = 1
        ORDER BY createdAt DESC`,
     )
     .all(category, language) as BlogPost[];
+}
+
+export function getAllCategories(language: "EN" | "HI" = "EN"): string[] {
+  const rows = db
+    .prepare(
+      `SELECT DISTINCT category 
+       FROM blog_posts 
+       WHERE published = 1 AND language = ?`,
+    )
+    .all(language) as { category: string }[];
+
+  return rows.map((row) => row.category);
 }
