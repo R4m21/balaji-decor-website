@@ -35,6 +35,8 @@ yarn-error.log*
 
 # local database file (can opt-in for committing if needed)
 leads.db
+blog.db
+database.db
 *.db
 
 # vercel
