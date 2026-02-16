@@ -1,33 +1,57 @@
-PROJECT: Balaji Decor (Production Website)
+PROJECT: Balaji Decor
+PROJECT TYPE: SEO-Optimized Interior Contractor Website
+LOCATION TARGET: Maharashtra, India
 
-STACK:
-Next.js 16 App Router, TypeScript Strict, Tailwind, SQLite
+STATUS: ACTIVE DEVELOPMENT
+PROJECT COMPLETE: NO
+DEPLOYMENT: NOT DEPLOYED
+BUILD STATUS: STABLE (LOCAL)
 
-STABLE:
-- SSG Core Pages
-- services/[slug]
-- locations/[slug]
-- Secure Contact API
-- WhatsApp Cloud API (Server Side)
-- JSON-LD implemented
-- Build stable
+DEVELOPMENT STRATEGY:
+Phase-based structured architecture (Phase 1 → Phase 12)
 
-CURRENT PHASE:
-Phase 8 – Blog System (ISR Enabled)
+CURRENT ACTIVE PHASE:
+Phase 8 – Blog System (Not Started Yet)
 
-OBJECTIVE:
-- Dynamic blog routes
-- ISR enabled
-- Blog listing page
-- Individual post page
-- Category pages
-- SEO metadata per post
-- OpenGraph
-- JSON-LD Article schema
-- Multi-language scaffold (EN + HI ready)
+IMPORTANT AI BEHAVIOR INSTRUCTIONS:
+- Project is NOT complete
+- Continue development phase-wise
+- Do NOT assume production-ready state
+- Do NOT rewrite stable modules
+- Provide FULL ready-to-copy files
+- Provide exact file paths
+- No partial snippets
+- No unnecessary explanation
+- Maintain production-safe coding discipline
 
-CONSTRAINTS:
-- Do not modify stable SEO routes
-- No root dynamic conflicts
+TECH STACK:
+- Next.js 16 (App Router only)
+- TypeScript (Strict Mode)
+- Tailwind CSS
+- SQLite
+- Zod
+- Nodemailer
+- WhatsApp Cloud API
+- reCAPTCHA v3
+- Metadata API + JSON-LD
+- SSG-first strategy
+
+STABLE ROUTES (DO NOT MODIFY):
+- /services/[slug]
+- /locations/[slug]
+- /api/contact
+- /api/whatsapp/webhook
+- Existing SEO system
+- Secure headers & rate limiting
+
+ARCHITECTURAL RULES:
+- No root-level dynamic conflicts
+- App Router only (No Pages Router)
+- Server-only secret handling
+- Config-driven architecture
 - Maintain SSG-first strategy
-- Production-safe architecture only
+- Maintain build stability
+- Production-ready code only
+
+NEXT TARGET:
+Implement Phase 8 Blog System cleanly without affecting existing architecture.
