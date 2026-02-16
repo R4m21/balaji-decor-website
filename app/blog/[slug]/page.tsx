@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllSlugs } from "@/lib/blog/queries";
+import Image from "next/image";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -57,6 +58,18 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <main className="max-w-3xl mx-auto px-4 py-12">
       <article>
+        {post.featuredImage && (
+          <div className="relative w-full h-80 mb-8 rounded overflow-hidden">
+            <Image
+              src={post.featuredImage}
+              alt={post.title}
+              fill
+              priority
+              className="object-cover"
+            />
+          </div>
+        )}
+
         <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
 
         <div

@@ -15,10 +15,16 @@ db.exec(`
     content TEXT NOT NULL,
     category TEXT NOT NULL,
     language TEXT NOT NULL CHECK(language IN ('EN','HI')),
+    featuredImage TEXT,
     createdAt TEXT NOT NULL,
     updatedAt TEXT NOT NULL,
     published INTEGER NOT NULL DEFAULT 0
   );
 `);
+
+try {
+  db.exec(`ALTER TABLE blog_posts ADD COLUMN featuredImage TEXT;`);
+} catch {}
+
 
 seedBlogData();

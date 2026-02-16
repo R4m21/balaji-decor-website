@@ -12,8 +12,8 @@ export function seedBlogData() {
 
   const insert = db.prepare(`
     INSERT INTO blog_posts
-    (slug, title, excerpt, content, category, language, createdAt, updatedAt, published)
-    VALUES (?, ?, ?, ?, ?, ?, ?, ?, 1)
+    (slug, title, excerpt, content, category, language, featuredImage, createdAt, updatedAt, published)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
   `);
 
   for (const post of BLOG_SEED_DATA) {
@@ -24,6 +24,7 @@ export function seedBlogData() {
       post.content,
       post.category,
       post.language,
+      post.featuredImage,
       now,
       now,
     );

@@ -1,6 +1,7 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { getAllPublishedPosts } from "@/lib/blog/queries";
+import Image from "next/image";
 
 export const revalidate = false; // Pure SSG
 
@@ -26,6 +27,18 @@ export default function BlogPage() {
             key={post.id}
             className="border rounded-lg p-6 hover:shadow-md transition"
           >
+            {post.featuredImage && (
+              <div className="relative w-full h-56 mb-4 rounded overflow-hidden">
+                <Image
+                  src={post.featuredImage}
+                  alt={post.title}
+                  fill
+                  priority
+                  className="object-cover"
+                />
+              </div>
+            )}
+
             <h2 className="text-xl font-semibold mb-2">
               <Link href={`/blog/${post.slug}`}>{post.title}</Link>
             </h2>

@@ -6,6 +6,7 @@ export const BLOG_SEED_DATA = [
       "Explore modern designer wallpaper trends popular in Mumbai, Thane and Navi Mumbai homes. Elegant, moisture-resistant and premium finishes.",
     category: "wallpaper",
     language: "EN",
+    featuredImage: "/blog-images/wallpaper-mumbai.jpg",
     content: `
 <h2>Why Designer Wallpaper is Trending in Mumbai</h2>
 <p>Urban homes across Mumbai, Thane and Navi Mumbai are shifting towards premium designer wallpapers that offer texture, depth and personality. With compact apartment layouts, wallpapers create visual expansion without structural changes.</p>
@@ -35,6 +36,7 @@ export const BLOG_SEED_DATA = [
       "Discover durable and stylish flooring solutions including wooden flooring, PVC vinyl and carpet tiles ideal for Maharashtra homes.",
     category: "flooring",
     language: "EN",
+    featuredImage: "/blog-images/flooring-pune.jpg",
     content: `
 <h2>Choosing Flooring for Maharashtra Climate</h2>
 <p>Pune and Nashik homes require flooring solutions that handle temperature variations and dust exposure.</p>
@@ -63,6 +65,7 @@ export const BLOG_SEED_DATA = [
       "Upgrade your interiors with roller and vertical blinds designed for privacy, light control and modern aesthetics.",
     category: "blinds",
     language: "EN",
+    featuredImage: "/blog-images/blinds-thane.jpg",
     content: `
 <h2>Modern Window Treatment Solutions</h2>
 <p>Roller and vertical blinds are practical alternatives to traditional curtains in Mumbai apartments.</p>
@@ -90,6 +93,7 @@ export const BLOG_SEED_DATA = [
       "From wallpaper to false ceiling, explore complete interior contracting solutions across Mumbai, Thane and Pune.",
     category: "interior",
     language: "EN",
+    featuredImage: "/blog-images/interior-mumbai.jpg",
     content: `
 <h2>One Stop Interior Solution</h2>
 <p>Modern homeowners prefer complete interior contracting to ensure consistent design and execution.</p>
