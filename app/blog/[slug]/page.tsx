@@ -2,6 +2,8 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { getPostBySlug, getAllSlugs } from "@/lib/blog/queries";
 import Image from "next/image";
+import config from "@/lib/config";
+import AutoServiceLink from "@/components/AutoServiceLink";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -21,6 +23,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return {};
 
+  const imageUrl = post.featuredImage
+    ? `${config.siteUrl}${post.featuredImage}`
+    : undefined;
+
   return {
     title: `${post.title} | Balaji Decor`,
     description: post.excerpt,
@@ -32,6 +38,22 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: post.excerpt,
       url: `/blog/${post.slug}`,
       type: "article",
+      images: imageUrl
+        ? [
+            {
+              url: imageUrl,
+              width: 1200,
+              height: 630,
+              alt: post.title,
+            },
+          ]
+        : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+      images: imageUrl ? [imageUrl] : [],
     },
   };
 }
@@ -72,10 +94,9 @@ export default async function BlogPostPage({ params }: Props) {
 
         <h1 className="text-3xl font-bold mb-6">{post.title}</h1>
 
-        <div
-          className="prose max-w-none"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
+        <div className="prose max-w-none">
+          <AutoServiceLink content={post.content} />
+        </div>
       </article>
 
       <script
