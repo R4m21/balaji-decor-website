@@ -10,7 +10,7 @@ import config from "@/lib/config";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap",
+  display: "swap", // ensures FCP / LCP improve
   variable: "--font-inter",
 });
 
