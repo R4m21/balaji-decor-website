@@ -7,6 +7,7 @@ import { verifyRecaptcha } from "@/lib/recaptcha";
 import { sendMail } from "@/lib/mailer";
 import { sendLeadToAdmin, sendCustomerConfirmation } from "@/lib/whatsapp";
 import config from "@/lib/config";
+import { logger } from "@/lib/logger";
 
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for") || "unknown";
@@ -68,7 +69,7 @@ export async function POST(req: Request) {
     await sendLeadToAdmin(cleanData);
     await sendCustomerConfirmation(cleanData);
   } catch (error) {
-    console.error("Email failed:", error);
+    logger.error("Email failed:", error);
   }
 
   return NextResponse.json({ success: true });

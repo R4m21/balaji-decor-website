@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Container from "@/components/ui/Container";
 import config from "@/lib/config";
+import { logger } from "@/lib/logger";
 
 export default function ContactForm() {
   const router = useRouter();
@@ -31,8 +32,8 @@ export default function ContactForm() {
     setLoading(true);
 
     try {
-      console.log({ form });
-      console.log("recaptcha object:", window.grecaptcha);
+      logger.info({ form });
+      logger.info("recaptcha object:", window.grecaptcha);
 
       const token = await new Promise<string>((resolve, reject) => {
         if (!window.grecaptcha) {
@@ -67,7 +68,7 @@ export default function ContactForm() {
         alert("Something went wrong. Try again.");
       }
     } catch (err) {
-      console.error(err);
+      logger.error(err);
       alert("Submission failed.");
     }
 

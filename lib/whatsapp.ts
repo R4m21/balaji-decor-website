@@ -1,3 +1,4 @@
+import { logger } from "./logger";
 import {
   buildAdminLeadMessage,
   buildCustomerConfirmation,
@@ -46,7 +47,7 @@ export async function sendLeadToAdmin(data: LeadPayload) {
     if (!WHATSAPP_TOKEN || !PHONE_NUMBER_ID) return;
     return sendWhatsAppMessage(ADMIN_PHONE, message);
   } catch (err) {
-    console.error("WhatsApp failed:", err);
+    logger.error("WhatsApp failed:", err);
   }
 }
 
@@ -56,6 +57,6 @@ export async function sendCustomerConfirmation(data: LeadPayload) {
     if (!WHATSAPP_TOKEN || !PHONE_NUMBER_ID) return;
     return sendWhatsAppMessage(data.phone, message);
   } catch (err) {
-    console.error("WhatsApp failed:", err);
+    logger.error("WhatsApp failed:", err);
   }
 }

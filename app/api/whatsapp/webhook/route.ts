@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import config from "@/lib/config";
+import { logger } from "@/lib/logger";
 
 const VERIFY_TOKEN = config.webhookVerifyToken!;
 
@@ -21,7 +22,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    console.log("WhatsApp Webhook Event:", JSON.stringify(body));
+    logger.info("WhatsApp Webhook Event:", JSON.stringify(body));
 
     // Future: Update message delivery status in DB here
 

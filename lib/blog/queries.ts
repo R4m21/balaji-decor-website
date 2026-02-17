@@ -1,11 +1,12 @@
+import { logger } from "../logger";
 import { db } from "./db";
 import { BlogPost } from "./types";
 
 export function getAllPublishedPosts(language: "EN" | "HI" = "EN"): BlogPost[] {
   return db
     .prepare(
-      `SELECT * FROM blog_posts 
-       WHERE published = 1 AND language = ? 
+      `SELECT * FROM blog_posts
+       WHERE published = 1 AND language = ?
        ORDER BY createdAt DESC`,
     )
     .all(language) as BlogPost[];
@@ -14,7 +15,7 @@ export function getPostBySlug(
   slug: string,
   language: "EN" | "HI" = "EN",
 ): BlogPost | undefined {
-  console.log("DB RESULT:", db)
+  logger.info("DB RESULT:", db);
   return db
     .prepare(
       `SELECT * FROM blog_posts
@@ -38,9 +39,9 @@ export function getPostsByCategory(
 ): BlogPost[] {
   return db
     .prepare(
-      `SELECT * FROM blog_posts 
-       WHERE LOWER(category) = LOWER(?) 
-       AND language = ? 
+      `SELECT * FROM blog_posts
+       WHERE LOWER(category) = LOWER(?)
+       AND language = ?
        AND published = 1
        ORDER BY createdAt DESC`,
     )
@@ -50,8 +51,8 @@ export function getPostsByCategory(
 export function getAllCategories(language: "EN" | "HI" = "EN"): string[] {
   const rows = db
     .prepare(
-      `SELECT DISTINCT category 
-       FROM blog_posts 
+      `SELECT DISTINCT category
+       FROM blog_posts
        WHERE published = 1 AND language = ?`,
     )
     .all(language) as { category: string }[];

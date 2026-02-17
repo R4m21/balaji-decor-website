@@ -7,7 +7,7 @@ const serverSchema = z.object({
   WHATSAPP_WEBHOOK_VERIFY_TOKEN: z.string().optional(),
   ADMIN_WHATSAPP_NUMBER: z.string().min(10),
 
-  // Mail (optional for now)
+  // Mail (optional)
   SMTP_HOST: z.string().optional(),
   SMTP_PORT: z.string().optional(),
   SMTP_USER: z.string().optional(),
@@ -17,6 +17,11 @@ const serverSchema = z.object({
   // Security
   RECAPTCHA_SECRET_KEY: z.string().min(1),
   CONTACT_RATE_LIMIT: z.string().default("5"),
+
+  // New for Logger
+  NODE_ENV: z
+    .enum(["development", "production", "test"])
+    .default("development"),
 });
 
 const clientSchema = z.object({
