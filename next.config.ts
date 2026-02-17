@@ -1,6 +1,15 @@
 import type { NextConfig } from "next";
 import withBundleAnalyzer from "@next/bundle-analyzer";
 
+// ✅ Solution 1 (Recommended) — Webpack
+// set ANALYZE=true
+// npm run build -- --webpack
+// ----------OR-----------
+// npx next build --webpack
+// ========================
+// ✅ Solution 2 (New Turbopack Analyzer)
+// npx next experimental-analyze
+
 const analyzer = withBundleAnalyzer({
   enabled: process.env.ANALYZE === "true",
 });
