@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getPostBySlug, getAllSlugs } from "@/lib/blog/queries";
+import { getPostBySlug, getAllSlugs, getAllPublishedPosts } from "@/lib/blog/queries";
 import Image from "next/image";
 import config from "@/lib/config";
 import AutoServiceLink from "@/components/AutoServiceLink";
@@ -14,15 +14,17 @@ interface Props {
 export const revalidate = 60;
 
 export async function generateStaticParams() {
-  const slugs = getAllSlugs();
-  return slugs.map((s) => ({
-    slug: s.slug,
+  const posts = getAllPublishedPosts("HI");
+
+  return posts.map((post) => ({
+    slug: post.slug,
   }));
 }
 
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = getPostBySlug(slug);
+  const post = getPostBySlug(slug, "HI");
   if (!post) return {};
 
   const imageUrl = post.featuredImage
@@ -62,7 +64,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
-  const post = getPostBySlug(slug, "EN");
+  const post = getPostBySlug(slug, "HI");
 
   if (!post) return notFound();
   const relatedPosts = getRelatedPosts(post.category, post.slug, post.language);

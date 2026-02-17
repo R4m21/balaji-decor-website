@@ -114,4 +114,107 @@ export const BLOG_SEED_DATA = [
 <p>Projects handled across Mumbai, Thane, Navi Mumbai, Pune and Nashik with site supervision and quality control.</p>
 `,
   },
+  {
+    slug: "mumbai-me-designer-wallpaper-trends-2026",
+    title: "मुंबई के घरों में Designer Wallpaper Trends (2026 Guide)",
+    excerpt:
+      "जानिए मुंबई, ठाणे और नवी मुंबई में चल रहे लेटेस्ट Designer Wallpaper ट्रेंड्स और कैसे ये आपके घर को प्रीमियम लुक देते हैं।",
+    category: "wallpaper",
+    language: "HI",
+    featuredImage: "/blog-images/wallpaper-mumbai.jpg",
+    content: `
+<h2>मुंबई में Designer Wallpaper क्यों लोकप्रिय हो रहे हैं?</h2>
+<p>मुंबई और ठाणे के अपार्टमेंट्स में आजकल प्रीमियम Designer Wallpapers तेजी से ट्रेंड में हैं। ये दीवारों को टेक्सचर, गहराई और लग्ज़री लुक देते हैं।</p>
+
+<h2>2026 के टॉप Wallpaper ट्रेंड्स</h2>
+<h3>1. टेक्सचर्ड न्यूट्रल फिनिश</h3>
+<p>Beige और Grey शेड्स छोटे फ्लैट्स को भी बड़ा और एलिगेंट दिखाते हैं।</p>
+
+<h3>2. Imported Luxury Wallpaper</h3>
+<p>Coastal Mumbai के मौसम के लिए moisture-resistant imported wallpaper बेहतर विकल्प है।</p>
+
+<h3>3. Accent Wall कॉन्सेप्ट</h3>
+<p>पूरी दीवार कवर करने की बजाय एक feature wall प्रीमियम होटल जैसा लुक देता है।</p>
+
+<h2>Professional Installation क्यों जरूरी है?</h2>
+<p>सही surface preparation से bubbles और peeling की समस्या नहीं आती।</p>
+`,
+  },
+
+  {
+    slug: "pune-aur-nashik-ke-ghar-ke-liye-best-flooring-options",
+    title: "पुणे और नाशिक के घरों के लिए Best Flooring Options",
+    excerpt:
+      "जानिए Wooden Flooring, PVC Vinyl और Carpet Tiles जैसे टिकाऊ और स्टाइलिश विकल्प जो महाराष्ट्र के घरों के लिए उपयुक्त हैं।",
+    category: "flooring",
+    language: "HI",
+    featuredImage: "/blog-images/flooring-pune.jpg",
+    content: `
+<h2>महाराष्ट्र के मौसम के अनुसार Flooring चुनना</h2>
+<p>पुणे और नाशिक में तापमान और धूल को ध्यान में रखते हुए सही flooring चुनना जरूरी है।</p>
+
+<h2>1. Wooden Flooring</h2>
+<p>Bedroom और Living Room में warmth और luxury जोड़ता है।</p>
+
+<h2>2. PVC Vinyl Flooring</h2>
+<p>Water-resistant और budget-friendly विकल्प है।</p>
+
+<h2>3. PVC Carpet Tiles</h2>
+<p>Office और Workspaces के लिए उपयुक्त।</p>
+
+<h2>Installation का महत्व</h2>
+<p>Professional installation से durability और finishing बेहतर रहती है।</p>
+`,
+  },
+
+  {
+    slug: "thane-me-roller-aur-vertical-blinds",
+    title: "ठाणे के आधुनिक अपार्टमेंट्स के लिए Roller और Vertical Blinds",
+    excerpt:
+      "Roller और Vertical Blinds से पाएं बेहतर light control, privacy और मॉडर्न इंटीरियर लुक।",
+    category: "blinds",
+    language: "HI",
+    featuredImage: "/blog-images/blinds-thane.jpg",
+    content: `
+<h2>Modern Window Solutions</h2>
+<p>Roller और Vertical Blinds पारंपरिक पर्दों की तुलना में अधिक practical और stylish हैं।</p>
+
+<h2>फायदे</h2>
+<ul>
+<li>Light Control</li>
+<li>Privacy</li>
+<li>Low Maintenance</li>
+<li>Modern Look</li>
+</ul>
+
+<h2>Sun Control Film के साथ उपयोग</h2>
+<p>Blinds के साथ sun control film लगाने से heat कम होती है और energy efficiency बढ़ती है।</p>
+`,
+  },
+
+  {
+    slug: "mumbai-me-complete-interior-contracting-services",
+    title: "मुंबई में Complete Interior Contracting Services",
+    excerpt:
+      "Wallpaper से लेकर False Ceiling तक, मुंबई और पुणे में Complete Interior Solutions की पूरी जानकारी।",
+    category: "interior",
+    language: "HI",
+    featuredImage: "/blog-images/interior-mumbai.jpg",
+    content: `
+<h2>One Stop Interior Solution</h2>
+<p>आजकल घर मालिक complete interior contracting पसंद करते हैं ताकि डिजाइन और execution में consistency रहे।</p>
+
+<h2>Services में शामिल</h2>
+<ul>
+<li>Designer & Imported Wallpaper</li>
+<li>Wooden & PVC Vinyl Flooring</li>
+<li>Artificial Grass</li>
+<li>Interior Painting</li>
+<li>POP & False Ceiling</li>
+</ul>
+
+<h2>Professional Supervision का महत्व</h2>
+<p>सही supervision से project timely और premium finish के साथ पूरा होता है।</p>
+`,
+  },
 ];
