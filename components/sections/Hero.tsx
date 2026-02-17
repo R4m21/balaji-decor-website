@@ -12,11 +12,11 @@ export default function Hero() {
         alt="Luxury interior wallpaper and flooring design by Balaji Decor"
         fill
         priority
-        sizes="100vw"
-        quality={85}
+        sizes="(max-width: 640px) 100vw, 1920px"
+        quality={75}
         placeholder="blur"
         // blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAnIGhlaWdodD0nMTAnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHJlY3Qgd2lkdGg9JzEwJyBoZWlnaHQ9JzEwJyBmaWxsPSIjMjIyMjIyIi8+PC9zdmc+"
-        blurDataURL="/images/hero-blur.jpg" // optional small blurred version
+        blurDataURL="/images/hero-blur.jpg"
         className="object-cover"
       />
       <div className="absolute inset-0 bg-black/60" />

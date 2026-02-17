@@ -10,8 +10,9 @@ import config from "@/lib/config";
 
 const inter = Inter({
   subsets: ["latin"],
-  display: "swap", // ensures FCP / LCP improve
+  display: "swap",
   variable: "--font-inter",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -50,22 +51,23 @@ export default function RootLayout({
           <Footer />
           <FloatingButtons />
         </ThemeProvider>
-        {/* reCAPTCHA – Always Load */}
+
+        {/* reCAPTCHA – Lazy Load */}
         {config.recaptchaSiteKey && (
           <Script
             src={`https://www.google.com/recaptcha/api.js?render=${config.recaptchaSiteKey}`}
-            strategy="afterInteractive"
+            strategy="lazyOnload"
           />
         )}
 
-        {/* Google Analytics – Optional */}
+        {/* Google Analytics – Lazy Load */}
         {config.gaId && (
           <>
             <Script
               src={`https://www.googletagmanager.com/gtag/js?id=${config.gaId}`}
-              strategy="afterInteractive"
+              strategy="lazyOnload"
             />
-            <Script id="ga-script" strategy="afterInteractive">
+            <Script id="ga-script" strategy="lazyOnload">
               {`
                 window.dataLayer = window.dataLayer || [];
                 function gtag(){dataLayer.push(arguments);}
