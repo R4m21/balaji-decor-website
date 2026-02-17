@@ -1,6 +1,6 @@
 # BALAJI DECOR – MASTER PROJECT CONTEXT
 
-Last Updated: 17 Feb 2026
+Last Updated: 18 Feb 2026
 Project Stage: Development (Phase 9 Pending)
 Deployment Status: Not Deployed
 Build Status: Local Build Passing
@@ -36,6 +36,7 @@ SEO:
 - JSON-LD Structured Data
 - OpenGraph
 - Sitemap + Robots
+- SSG-first strategy
 
 Security:
 - Sanitization
@@ -62,6 +63,8 @@ Security:
 - Server-only secret handling
 - Config-driven architecture
 - Production-safe coding discipline
+- Do NOT rewrite stable modules
+- Maintain build stability at every phase
 
 ============================================================
 5. PHASE STATUS
@@ -75,7 +78,7 @@ Phase 5 – Location SEO (Completed)
 Phase 6 – Secure Contact System (Completed)
 Phase 7 – WhatsApp Cloud API (Completed)
 Phase 8 – Blog System (Completed)
-Phase 9 – Performance Optimization (Ready To Start)
-Phase 10 – Security Hardening (Planned)
+Phase 9 – Performance Optimization (Completed)
+Phase 10 – Security Hardening (Ready To Start)
 Phase 11 – Logo + Assets (Planned)
 Phase 12 – Deployment Guide (Planned)
