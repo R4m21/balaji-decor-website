@@ -1,58 +1,46 @@
-CURRENT ACTIVE PHASE: Phase 8 – Blog System
+CURRENT ACTIVE PHASE: Phase 9 – Performance Optimization
 
 PHASE STATUS:
-Not Started
+Ready To Start
 
 PROJECT MODE:
 Development Mode = TRUE
 Production Mode = FALSE
 
-OBJECTIVE FOR PHASE 8:
+OBJECTIVE FOR PHASE 9:
 
-Implement Blog System with the following:
+Optimize project for:
 
-1. Blog Listing Page
-   Route: /blog
-   Strategy: Static Generation (SSG)
-
-2. Dynamic Blog Post Page
-   Route: /blog/[slug]
-   Strategy: ISR enabled
-
-3. Blog Category Page
-   Route: /blog/category/[category]
-
-4. SQLite Blog Table
-   - id
-   - slug
-   - title
-   - excerpt
-   - content
-   - category
-   - language (EN | HI ready)
-   - createdAt
-   - updatedAt
-   - published (boolean)
-
-5. SEO Requirements:
-   - Metadata API per post
-   - OpenGraph per post
-   - JSON-LD Article schema
-   - Canonical URLs
-
-6. Multi-language scaffold (EN primary, HI ready structure)
+- Lighthouse 90+ score
+- Image optimization
+- Lazy loading
+- Dynamic imports
+- Preload hero image
+- Font optimization
+- Code splitting
+- Sitemap auto update validation
+- Robots optimization
+- Bundle size reduction
+- Fallback image handling
 
 STRICT RULES:
 - Do NOT modify stable routes
-- Do NOT rewrite core architecture
-- Work only inside blog module
+- Do NOT break existing SEO
+- Do NOT rewrite stable architecture
 - Maintain SSG-first strategy
-- Keep build passing
 - Production-safe implementation only
+- Vercel optimized build
 
 AI IMPLEMENTATION MODE:
-Provide full ready-to-copy files.
-File by file.
-With exact paths.
-No explanation unless necessary.
-Continue development only.
+Provide full ready-to-copy files
+File by file delivery
+Include exact file paths
+No partial snippets
+No explanation unless necessary
+Do not modify stable modules
+Maintain build stability
+Cross-check all features and changes step-by-step before completion
+Ensure no TypeScript, build, or runtime errors
+Provide proper conventional commit message
+One feature / fix = one clean commit
+Continue development only

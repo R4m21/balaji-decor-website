@@ -22,3 +22,24 @@ PHASE 7 – WhatsApp Cloud API Integration
 - Customer confirmation message
 - Graceful error handling (no system break)
 - Contact system remains intact
+
+============================================================
+PHASE 8 – Blog System
+============================================================
+
+- Blog listing (SSG)
+- Dynamic blog pages (ISR)
+- Category pages
+- SQLite blog table
+- Metadata API integration
+- OpenGraph per post
+- JSON-LD Article schema
+- Canonical URLs
+- Multi-language scaffold (EN + HI)
+- Internal SEO linking
+- Auto blog sitemap integration
+- Category SEO enhancement
+- Related posts system
+- Stable dynamic routing
+- Production build passing
+
