@@ -8,6 +8,14 @@ import { sendMail } from "@/lib/mailer";
 import { sendLeadToAdmin, sendCustomerConfirmation } from "@/lib/whatsapp";
 import config from "@/lib/config";
 import { logger } from "@/lib/logger";
+import { generateCSRFToken, setCSRFCookie, validateCSRF } from "@/lib/csrf";
+
+export async function GET() {
+  const token = generateCSRFToken();
+  await setCSRFCookie(token);
+
+  return NextResponse.json({ csrfToken: token });
+}
 
 export async function POST(req: Request) {
   const ip = req.headers.get("x-forwarded-for") || "unknown";
@@ -16,6 +24,12 @@ export async function POST(req: Request) {
 
   if (!allowed) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+  }
+
+  // 🔐 CSRF Validation
+  const csrfValid = await validateCSRF(req);
+  if (!csrfValid) {
+    return NextResponse.json({ error: "Invalid CSRF token" }, { status: 403 });
   }
 
   const body = await req.json();
@@ -65,11 +79,10 @@ export async function POST(req: Request) {
 
   try {
     await sendMail(cleanData);
-    // 🔥 WhatsApp Integration
     await sendLeadToAdmin(cleanData);
     await sendCustomerConfirmation(cleanData);
   } catch (error) {
-    logger.error("Email failed:", error);
+    logger.error("Notification failed:", error);
   }
 
   return NextResponse.json({ success: true });
