@@ -23,7 +23,8 @@ export async function GET() {
 
 export async function POST(req: Request) {
   try {
-    const ip = req.headers.get("x-forwarded-for") || "unknown";
+    const forwarded = req.headers.get("x-forwarded-for");
+    const ip = forwarded?.split(",")[0].trim() || "unknown";
 
     const allowed = rateLimit(ip, config.contactRateLimit);
 

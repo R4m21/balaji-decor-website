@@ -24,7 +24,7 @@ const config = {
   adminEmail: env.ADMIN_EMAIL || "balajidecor108@gmail.com",
 
   // Logger & environment
-  isProduction: env.NODE_ENV === "production",
+  isProduction: process.env.NODE_ENV === "production",
 };
 
 export default config;

@@ -10,11 +10,11 @@ const isDev = !config.isProduction;
 
 const ContentSecurityPolicy = `
   default-src 'self';
-  script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com;
+  script-src 'self' 'unsafe-inline' https://www.google.com https://www.gstatic.com https://www.googletagmanager.com;
   style-src 'self' 'unsafe-inline';
   img-src 'self' data: blob:;
   font-src 'self' data:;
-  connect-src 'self' https://www.google.com https://www.gstatic.com https://graph.facebook.com;
+  connect-src 'self' https://www.google.com https://www.google-analytics.com https://www.gstatic.com https://graph.facebook.com;
   frame-src https://www.google.com;
   object-src 'none';
   base-uri 'self';

@@ -27,6 +27,11 @@ const CTA = dynamic(() => import("@/components/sections/CTA"), {
   loading: () => <div className="h-32" />,
 });
 
+const ContactForm = dynamic(() => import("@/components/sections/ContactForm"), {
+  ssr: true,
+  loading: () => <div className="h-32" />,
+});
+
 export default function HomePage() {
   return (
     <>
@@ -39,6 +44,7 @@ export default function HomePage() {
       <GalleryPreview />
       <Testimonials />
       <CTA />
+      <ContactForm />
     </>
   );
 }

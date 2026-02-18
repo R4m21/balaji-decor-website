@@ -1,5 +1,4 @@
 import { z } from "zod";
-import { logger } from "@/lib/logger";
 
 const isServer = typeof window === "undefined";
 const isProd = process.env.NODE_ENV === "production";
@@ -26,11 +25,7 @@ const serverSchema = z.object({
 
   // Security
   RECAPTCHA_SECRET_KEY: isProd ? z.string().min(1) : z.string().optional(),
-  CONTACT_RATE_LIMIT: z.string().default("5"),
-
-  NODE_ENV: z
-    .enum(["development", "production", "test"])
-    .default("development"),
+  CONTACT_RATE_LIMIT: z.coerce.number().min(1).default(5),
 });
 
 /* =========================
@@ -55,12 +50,12 @@ if (isServer) {
 
   if (!parsed.success) {
     if (isProd) {
-      logger.error("Invalid production server environment variables", {
+      console.error("Invalid production server environment variables", {
         errors: parsed.error.flatten().fieldErrors,
       });
       process.exit(1);
     } else {
-      logger.warn("Server env validation warning (dev mode)", {
+      console.warn("Server env validation warning (dev mode)", {
         errors: parsed.error.flatten().fieldErrors,
       });
     }
@@ -81,12 +76,12 @@ const clientParsed = clientSchema.safeParse(clientEnvRaw);
 
 if (!clientParsed.success) {
   if (isProd) {
-    logger.error("Invalid production client environment variables", {
+    console.error("Invalid production client environment variables", {
       errors: clientParsed.error.flatten().fieldErrors,
     });
     process.exit(1);
   } else {
-    logger.warn("Client env validation warning (dev mode)", {
+    console.warn("Client env validation warning (dev mode)", {
       errors: clientParsed.error.flatten().fieldErrors,
     });
   }

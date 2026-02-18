@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import Container from "@/components/ui/Container";
 import config from "@/lib/config";
@@ -18,6 +18,14 @@ export default function ContactForm() {
   });
 
   const [loading, setLoading] = useState(false);
+  const [csrfToken, setCsrfToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetch("/api/contact")
+      .then((res) => res.json())
+      .then((data) => setCsrfToken(data.csrfToken))
+      .catch(() => alert("Security initialization failed"));
+  }, []);
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -55,6 +63,7 @@ export default function ContactForm() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "x-csrf-token": csrfToken || "",
         },
         body: JSON.stringify({
           ...form,

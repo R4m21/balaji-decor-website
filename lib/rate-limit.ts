@@ -1,23 +1,23 @@
-const requests = new Map<string, { count: number; lastRequest: number }>();
+const requests = new Map<string, { count: number; expires: number }>();
 
-export function rateLimit(ip: string, limit: number) {
+const WINDOW_MS = 60 * 1000; // 1 minute
+
+export function rateLimit(ip: string, limit: number): boolean {
   const now = Date.now();
-  const windowMs = 60 * 1000;
-
   const record = requests.get(ip);
 
-  if (!record) {
-    requests.set(ip, { count: 1, lastRequest: now });
+  if (!record || record.expires < now) {
+    requests.set(ip, {
+      count: 1,
+      expires: now + WINDOW_MS,
+    });
     return true;
   }
 
-  if (now - record.lastRequest > windowMs) {
-    requests.set(ip, { count: 1, lastRequest: now });
-    return true;
+  if (record.count >= limit) {
+    return false;
   }
 
-  if (record.count >= limit) return false;
-
-  record.count++;
+  record.count += 1;
   return true;
 }

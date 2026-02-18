@@ -5,7 +5,7 @@ export async function sendMail({ name, phone, email, service, message }: any) {
   const transporter = nodemailer.createTransport({
     host: config.smtp.host,
     port: Number(config.smtp.port),
-    secure: true,
+    // secure: true, // use must be on
     auth: {
       user: config.smtp.user,
       pass: config.smtp.pass,
