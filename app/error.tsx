@@ -1,5 +1,9 @@
 "use client";
 
+import config from "@/lib/config";
+import { logger } from "@/lib/logger";
+import { useEffect } from "react";
+
 export default function GlobalError({
   error,
   reset,
@@ -7,17 +11,21 @@ export default function GlobalError({
   error: Error;
   reset: () => void;
 }) {
+  useEffect(() => {
+    if (!config.isProduction) {
+      logger.error(error);
+    }
+  }, [error]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="text-center">
-        <h2 className="text-2xl font-semibold mb-4 text-black dark:text-white">
-          Something went wrong
-        </h2>
+        <h1 className="text-2xl font-semibold">Something went wrong.</h1>
         <button
           onClick={() => reset()}
-          className="px-6 py-2 bg-gradient-primary text-white rounded-md"
+          className="mt-4 rounded bg-primary px-4 py-2 text-white"
         >
-          Try again
+          Try Again
         </button>
       </div>
     </div>
