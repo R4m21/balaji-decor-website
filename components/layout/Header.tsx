@@ -10,18 +10,16 @@ const adminWhatsAppNumber = config.adminWhatsAppNumber;
 export default function Header() {
   return (
     <header className="sticky top-0 z-40 bg-white shadow dark:bg-black">
-      <Container className="flex items-center justify-between py-4">
+      <Container className="flex items-center justify-between py-3">
         <Link href="/" className="text-xl font-bold">
           <Image
-            src="/logos/logo-light1.png"
-            alt="logo by Balaji Decor"
-            width={150}
-            height={45}
+            src="/logos/logo-light.png"
+            alt="Balaji Decor Logo"
+            width={200}
+            height={100}
             priority
-            quality={75}
-            placeholder="blur"
-            className="object-cover"
-            blurDataURL="/logo-light.png"
+            quality={85}
+            className="h-16 w-auto"
           />
         </Link>
 
