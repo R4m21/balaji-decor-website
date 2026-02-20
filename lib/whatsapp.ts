@@ -27,9 +27,16 @@ async function sendWhatsAppMessage(to: string, body: string) {
     },
     body: JSON.stringify({
       messaging_product: "whatsapp",
-      to,
-      type: "text",
-      text: { body },
+      to: `91${to}`,
+      // type: "text",
+      // text: { body },
+      type: "template",
+      template: {
+        name: "hello_world",
+        language: {
+          code: "en_US",
+        },
+      },
     }),
   });
 

@@ -69,8 +69,10 @@ const nextConfig: NextConfig = {
   },
 
   compiler: {
-    removeConsole: !isDev,
+  removeConsole: !isDev,
   },
+
+  allowedDevOrigins: ["https://camren-trilobed-jakob.ngrok-free.dev/"],
 
   async headers() {
     return [
