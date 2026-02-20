@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Container from "../ui/Container";
 import config from "@/lib/config";
+import Image from "next/image";
 
 const adminWhatsAppNumber = config.adminWhatsAppNumber;
 
@@ -11,7 +12,17 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-white shadow dark:bg-black">
       <Container className="flex items-center justify-between py-4">
         <Link href="/" className="text-xl font-bold">
-          Balaji Decor
+          <Image
+            src="/logos/logo-light1.png"
+            alt="logo by Balaji Decor"
+            width={150}
+            height={45}
+            priority
+            quality={75}
+            placeholder="blur"
+            className="object-cover"
+            blurDataURL="/logo-light.png"
+          />
         </Link>
 
         <nav className="hidden md:flex gap-6 text-sm font-medium">
