@@ -37,6 +37,13 @@ const config: Config = {
       backdropBlur: {
         xs: "2px",
       },
+
+      spacing: {
+        "section-sm": "4rem",
+        "section-md": "6rem",
+        "section-lg": "8rem",
+        "section-xl": "10rem",
+      },
     },
   },
   plugins: [],

@@ -62,3 +62,30 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
 }
+
+/* ============================= */
+/*     EDITORIAL BASE STYLE      */
+/* ============================= */
+
+section {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+}
+
+p {
+  line-height: 1.7;
+}
