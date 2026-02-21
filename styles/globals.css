@@ -1,50 +1,91 @@
 @import "tailwindcss";
 
 /* ============================= */
-/*        DESIGN TOKENS          */
+/*         BRAND LAYER           */
 /* ============================= */
 
 :root {
-  /* ===== Brand Core ===== */
-  --color-primary: #0f1e3a; /* Royal Midnight */
-  --color-primary-foreground: #ffffff;
+  --brand-navy: #0f1e3a;
+  --brand-gold: #c6a75e;
 
-  --color-accent: #c6a75e; /* Subtle luxury gold */
-  --color-accent-foreground: #0f1e3a;
+  /* ============================= */
+  /*       SEMANTIC SURFACE        */
+  /* ============================= */
 
-  /* ===== Light Mode Base ===== */
-  --color-background: #fafafa; /* Cloud Matte */
+  --color-background: #fafafa;
   --color-foreground: #0f1e3a;
-
+  --color-surface: #ffffff;
   --color-muted: #f3f4f6;
   --color-border: #e5e7eb;
 
-  /* ===== Glass System ===== */
+  /* ============================= */
+  /*          ROLE LAYER           */
+  /* ============================= */
+
+  --color-primary: var(--brand-navy);
+  --color-primary-foreground: #ffffff;
+
+  --color-secondary: var(--brand-gold);
+  --color-secondary-foreground: #0f1e3a;
+
+  /* ============================= */
+  /*      INTERACTION STATES       */
+  /* ============================= */
+
+  --color-hover: rgba(15, 30, 58, 0.06);
+  --color-active: rgba(15, 30, 58, 0.12);
+  --color-focus-ring: rgba(15, 30, 58, 0.25);
+
+  /* ============================= */
+  /*        ELEVATION SYSTEM       */
+  /* ============================= */
+
+  --shadow-soft: 0 10px 40px rgba(15, 30, 58, 0.06);
+  --shadow-elevated: 0 20px 60px rgba(15, 30, 58, 0.08);
+
+  /* ============================= */
+  /*         GLASS SYSTEM          */
+  /* ============================= */
+
   --glass-bg: rgba(255, 255, 255, 0.6);
   --glass-border: rgba(255, 255, 255, 0.3);
 
-  /* ===== Radius System ===== */
+  /* ============================= */
+  /*         RADIUS SYSTEM         */
+  /* ============================= */
+
   --radius-sm: 8px;
   --radius-md: 14px;
   --radius-lg: 20px;
   --radius-xl: 28px;
-
-  /* ===== Shadow System ===== */
-  --shadow-soft: 0 10px 40px rgba(15, 30, 58, 0.06);
-  --shadow-elevated: 0 20px 60px rgba(15, 30, 58, 0.08);
 }
 
 /* ============================= */
-/*         DARK MODE             */
+/*           DARK MODE           */
 /* ============================= */
 
 .dark {
-  /* Deep luxury navy base (not pure black) */
   --color-background: #0b1628;
   --color-foreground: #f9fafb;
+  --color-surface: #111827;
+  --color-muted: #1f2937;
+  --color-border: #2a3441;
 
-  --color-muted: #111827;
-  --color-border: #1f2937;
+  /* Role tokens stay role-based */
+  --color-primary: #f9fafb;
+  --color-primary-foreground: #0b1628;
+
+  --color-secondary: var(--brand-gold);
+  --color-secondary-foreground: #0b1628;
+
+  /* Interaction tuned for dark */
+  --color-hover: rgba(255, 255, 255, 0.06);
+  --color-active: rgba(255, 255, 255, 0.12);
+  --color-focus-ring: rgba(255, 255, 255, 0.25);
+
+  /* Dark elevation */
+  --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --shadow-elevated: 0 20px 60px rgba(0, 0, 0, 0.5);
 
   --glass-bg: rgba(15, 30, 58, 0.6);
   --glass-border: rgba(255, 255, 255, 0.08);
@@ -61,59 +102,4 @@ html {
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-}
-
-/* ============================= */
-/*     EDITORIAL BASE STYLE      */
-/* ============================= */
-
-section {
-  padding-top: 6rem;
-  padding-bottom: 6rem;
-}
-
-@media (min-width: 1024px) {
-  section {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-  }
-}
-
-h1,
-h2,
-h3,
-h4 {
-  letter-spacing: -0.02em;
-}
-
-p {
-  line-height: 1.7;
-}
-
-/* ============================= */
-/*     ARCHITECTURAL DEPTH       */
-/* ============================= */
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: -1;
-
-  background:
-    radial-gradient(circle at 20% 10%, rgba(15, 30, 58, 0.04), transparent 40%),
-    radial-gradient(circle at 80% 0%, rgba(198, 167, 94, 0.04), transparent 40%);
-
-  opacity: 0.8;
-}
-
-.dark body::before {
-  background:
-    radial-gradient(
-      circle at 20% 10%,
-      rgba(255, 255, 255, 0.04),
-      transparent 40%
-    ),
-    radial-gradient(circle at 80% 0%, rgba(198, 167, 94, 0.06), transparent 40%);
 }

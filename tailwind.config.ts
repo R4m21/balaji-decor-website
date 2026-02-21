@@ -5,26 +5,37 @@ const config: Config = {
   content: ["./app/**/*.{ts,tsx}", "./components/**/*.{ts,tsx}"],
   theme: {
     extend: {
-      colors: {
-        /* Brand Core */
-        "royal-midnight": "#0F1E3A",
-        "cloud-matte": "#FAFAFA",
+      /* ============================= */
+      /*           COLOR SYSTEM        */
+      /* ============================= */
 
-        /* Design Token System */
+      colors: {
+        /* Semantic Surface */
+        background: "var(--color-background)",
+        foreground: "var(--color-foreground)",
+        surface: "var(--color-surface)",
+        muted: "var(--color-muted)",
+        border: "var(--color-border)",
+
+        /* Role Layer */
         primary: "var(--color-primary)",
         "primary-foreground": "var(--color-primary-foreground)",
 
-        accent: "var(--color-accent)",
-        "accent-foreground": "var(--color-accent-foreground)",
+        secondary: "var(--color-secondary)",
+        "secondary-foreground": "var(--color-secondary-foreground)",
 
-        background: "var(--color-background)",
-        foreground: "var(--color-foreground)",
-        muted: "var(--color-muted)",
-        border: "var(--color-border)",
+        /* Interaction States */
+        hover: "var(--color-hover)",
+        active: "var(--color-active)",
+        focus: "var(--color-focus-ring)",
 
         /* Glass */
         glass: "var(--glass-bg)",
       },
+
+      /* ============================= */
+      /*         RADIUS SYSTEM         */
+      /* ============================= */
 
       borderRadius: {
         sm: "var(--radius-sm)",
@@ -33,14 +44,18 @@ const config: Config = {
         xl: "var(--radius-xl)",
       },
 
+      /* ============================= */
+      /*        ELEVATION SYSTEM       */
+      /* ============================= */
+
       boxShadow: {
         soft: "var(--shadow-soft)",
         elevated: "var(--shadow-elevated)",
       },
 
-      backdropBlur: {
-        xs: "2px",
-      },
+      /* ============================= */
+      /*          SPACING SYSTEM       */
+      /* ============================= */
 
       spacing: {
         "section-sm": "4rem",
@@ -48,6 +63,10 @@ const config: Config = {
         "section-lg": "8rem",
         "section-xl": "10rem",
       },
+
+      /* ============================= */
+      /*          TYPOGRAPHY           */
+      /* ============================= */
 
       fontFamily: {
         sans: ["var(--font-inter)"],
