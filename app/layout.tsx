@@ -43,8 +43,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" data-scroll-behavior="smooth" className={inter.variable}>
-      <body className="min-h-screen bg-white text-gray-900 antialiased">
+    <html
+      lang="en"
+      data-scroll-behavior="smooth"
+      className={`${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-screen bg-cloud-matte text-royal-midnight antialiased dark:bg-royal-midnight dark:text-white">
         <ThemeProvider>
           <Header />
           {children}
