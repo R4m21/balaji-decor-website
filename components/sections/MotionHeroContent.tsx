@@ -3,9 +3,17 @@
 import { motion } from "framer-motion";
 import Button from "@/components/ui/Button";
 import { fadeUp } from "@/lib/motion";
+import { useEffect, useState } from "react";
 
 export default function MotionHeroContent() {
   const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) return null;
 
   if (isMobile) {
     return (
