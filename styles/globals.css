@@ -103,3 +103,8 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
 }
+
+/* Anchor Scroll Offset Fix */
+[id] {
+  scroll-margin-top: 104px;
+}
