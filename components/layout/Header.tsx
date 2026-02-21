@@ -19,7 +19,7 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-neutral-200 bg-cloud-matte/80 backdrop-blur-md dark:border-neutral-800 dark:bg-royal-midnight/80">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
       <Container className="flex items-center justify-between py-4">
         {/* Logo */}
         <Link href="/" className="flex items-center">
@@ -69,25 +69,26 @@ export default function Header() {
 
         {/* Right Side */}
         <div className="flex items-center gap-4">
-          {/* Luxury CTA */}
+          {/* CTA — Token Based Inversion */}
           <a
             href={`tel:+${adminWhatsAppNumber}`}
-            className="rounded-md border border-royal-midnight px-6 py-2 text-sm tracking-[0.1em] uppercase transition-all duration-300 
-            hover:bg-neutral-100 
-            dark:border-white dark:hover:bg-neutral-800"
+            className="rounded-md border border-foreground
+                       px-6 py-2 text-sm tracking-[0.12em] uppercase
+                       transition-all duration-300
+                       hover:bg-foreground/10
+                       hover:shadow-soft"
           >
             Call Now
           </a>
 
-          {/* Theme Toggle - Icon Style */}
+          {/* Theme Toggle */}
           {mounted && (
             <button
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               className="flex h-9 w-9 items-center justify-center rounded-full
-                         border border-neutral-300
+                         border border-border
                          transition-all duration-300
-                         hover:scale-105 hover:shadow-sm
-                         dark:border-neutral-600 dark:hover:bg-neutral-700"
+                         hover:scale-105 hover:shadow-sm"
               aria-label="Toggle Theme"
             >
               {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}

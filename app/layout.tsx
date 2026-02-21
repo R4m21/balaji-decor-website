@@ -49,14 +49,13 @@ export default function RootLayout({
       className={`${inter.variable}`}
       suppressHydrationWarning
     >
-      <body className="min-h-screen bg-cloud-matte text-royal-midnight antialiased dark:bg-royal-midnight dark:text-white">
+      <body className="min-h-screen bg-background text-foreground antialiased">
         <ThemeProvider>
           <Header />
           {children}
           <Footer />
           <FloatingButtons />
         </ThemeProvider>
-
         {/* reCAPTCHA – Lazy Load */}
         {config.recaptchaSiteKey && (
           <Script
@@ -64,7 +63,6 @@ export default function RootLayout({
             strategy="lazyOnload"
           />
         )}
-
         {/* Google Analytics – Lazy Load */}
         {config.gaId && (
           <>
