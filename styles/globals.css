@@ -1,5 +1,64 @@
 @import "tailwindcss";
 
+/* ============================= */
+/*        DESIGN TOKENS          */
+/* ============================= */
+
+:root {
+  /* ===== Brand Core ===== */
+  --color-primary: #0f1e3a; /* Royal Midnight */
+  --color-primary-foreground: #ffffff;
+
+  --color-accent: #c6a75e; /* Subtle luxury gold */
+  --color-accent-foreground: #0f1e3a;
+
+  /* ===== Light Mode Base ===== */
+  --color-background: #fafafa; /* Cloud Matte */
+  --color-foreground: #0f1e3a;
+
+  --color-muted: #f3f4f6;
+  --color-border: #e5e7eb;
+
+  /* ===== Glass System ===== */
+  --glass-bg: rgba(255, 255, 255, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.3);
+
+  /* ===== Radius System ===== */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+
+  /* ===== Shadow System ===== */
+  --shadow-soft: 0 10px 40px rgba(15, 30, 58, 0.06);
+  --shadow-elevated: 0 20px 60px rgba(15, 30, 58, 0.08);
+}
+
+/* ============================= */
+/*         DARK MODE             */
+/* ============================= */
+
+.dark {
+  /* Deep luxury navy base (not pure black) */
+  --color-background: #0b1628;
+  --color-foreground: #f9fafb;
+
+  --color-muted: #111827;
+  --color-border: #1f2937;
+
+  --glass-bg: rgba(15, 30, 58, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+}
+
+/* ============================= */
+/*        GLOBAL BEHAVIOR        */
+/* ============================= */
+
 html {
   scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }

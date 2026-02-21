@@ -6,17 +6,36 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        brand: {
-          blue: "#1E3A8A",
-          teal: "#0D9488",
-          purple: "#6D28D9",
-          orange: "#F97316",
-        },
+        /* Core System */
+        primary: "var(--color-primary)",
+        "primary-foreground": "var(--color-primary-foreground)",
+
+        accent: "var(--color-accent)",
+        "accent-foreground": "var(--color-accent-foreground)",
+
+        background: "var(--color-background)",
+        foreground: "var(--color-foreground)",
+        muted: "var(--color-muted)",
+        border: "var(--color-border)",
+
+        /* Glass */
+        glass: "var(--glass-bg)",
       },
-      backgroundImage: {
-        "gradient-primary": "linear-gradient(to right, #1E3A8A, #0D9488)",
-        "gradient-secondary": "linear-gradient(to right, #1E3A8A, #6D28D9)",
-        "gradient-accent": "linear-gradient(to right, #0D9488, #F97316)",
+
+      borderRadius: {
+        sm: "var(--radius-sm)",
+        md: "var(--radius-md)",
+        lg: "var(--radius-lg)",
+        xl: "var(--radius-xl)",
+      },
+
+      boxShadow: {
+        soft: "var(--shadow-soft)",
+        elevated: "var(--shadow-elevated)",
+      },
+
+      backdropBlur: {
+        xs: "2px",
       },
     },
   },
