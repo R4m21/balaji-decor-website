@@ -6,7 +6,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        /* Core System */
+        /* Brand Core */
+        "royal-midnight": "#0F1E3A",
+        "cloud-matte": "#FAFAFA",
+
+        /* Design Token System */
         primary: "var(--color-primary)",
         "primary-foreground": "var(--color-primary-foreground)",
 
@@ -43,6 +47,10 @@ const config: Config = {
         "section-md": "6rem",
         "section-lg": "8rem",
         "section-xl": "10rem",
+      },
+
+      fontFamily: {
+        sans: ["var(--font-inter)"],
       },
     },
   },
