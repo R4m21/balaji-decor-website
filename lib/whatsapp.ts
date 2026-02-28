@@ -37,6 +37,7 @@ async function sendWhatsAppMessage(to: string, body: string) {
           code: "en_US",
         },
       },
+      message_validity_period: 86400  // 24h validity - utility
     }),
   });
 
